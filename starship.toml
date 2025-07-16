@@ -1,0 +1,35 @@
+# Keep everything on one line
+add_newline = false
+
+format = "$directory$git_branch$character"
+
+# Directory formatting
+[directory]
+style = "bold #d8a7d1"
+truncation_length = 3
+truncation_symbol = "/"
+read_only = "🔒"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = "🌿 "
+style = "bold #b6e3b0"
+format = "on [$symbol$branch]($style)"
+
+[git_status]
+style = "bright-yellow"
+format = '[ ($all_status$ahead_behind)]($style)'
+staged = '[●](bright-green)'
+modified = '[✎](bright-yellow)'
+untracked = '[?](bright-cyan)'
+deleted = '[✘](bright-red)'
+stashed = '[💾](bright-blue)'
+conflicted = '[‼](bright-magenta)'
+# only_nonzero_diffs = true
+
+[character]
+success_symbol = '[ ❨๑•̀ㅂ•́❩ง✧ ➜](#a3d9a5)'
+error_symbol = "[❨◡_◡❩ᕤ ✖](#e8a4a4)"
+
+[battery]
+disabled = true
