@@ -1,12 +1,12 @@
 return {
   {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    config = true,
+    "mason-org/mason.nvim",
+    opts = {}
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim" },
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    lazy = false,
     opts = {
       ensure_installed = {
         "ts_ls", 
@@ -17,20 +17,18 @@ return {
         "eslint",
       },
       automatic_installation = true,
+      handlers = {
+        function(server_name)
+          require("lspconfig")[server_name].setup({})
+        end
+      }
     },
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    lazy = false,
+    dependencies = { "mason-org/mason-lspconfig.nvim" },
     config = function()
-      local lspconfig = require("lspconfig")
-      local mason_lspconfig = require("mason-lspconfig")
-
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          lspconfig[server_name].setup({})
-        end,
-      })
         vim.diagnostic.config({
         virtual_text = true,
         signs = true,

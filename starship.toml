@@ -28,7 +28,7 @@ conflicted = '[‼](bright-magenta)'
 # only_nonzero_diffs = true
 
 [character]
-success_symbol = '[ ❨๑•̀ㅂ•́❩ง✧ ➜](#a3d9a5)'
+success_symbol = '[ ❨๑•̀ㅂ•́❩ง✧➜](#a3d9a5)'
 error_symbol = "[❨◡_◡❩ᕤ ✖](#e8a4a4)"
 
 [battery]

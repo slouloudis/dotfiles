@@ -13,4 +13,13 @@ require("config.lazy")
 
 -- keymaps 
 vim.keymap.set('n', '<Esc>]p', require('telescope.builtin').find_files, { desc = 'Cmd+P Telescope' })
-
+vim.filetype.add({
+  extension = {
+    js = function(path, bufnr)
+      if path:match(".*/app/.*%.js$") or path:match(".*/components/.*%.js$") then
+        return "javascriptreact"
+      end
+      return "javascript"
+    end,
+  },
+})
